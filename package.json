@@ -1,0 +1,33 @@
+{
+  "name": "splyt-map-backend",
+  "version": "0.1.0",
+  "description": "Get taxis based on the latitude and longitude",
+  "author": "Azri Farid Shahroom",
+  "scripts": {
+    "watch": "nodemon src/index.ts",
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "test": "jest src --watchAll",
+    "format": "prettier --write \"src/**/*.+(js|ts|json|css|md|mdx|html|yaml)\" \"*.+(js|ts|json|css|md|mdx|html|yaml)\"",
+    "check-format": "prettier --check \"src/**/*.+(js|ts|json|css|md|mdx|html|yaml)\" \"*.+(js|ts|json|css|md|mdx|html|yaml)\"",
+    "start": "node build"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/node": "^8.0.29",
+    "@types/ramda": "^0.27.58",
+    "dotenv": "^8.2.0",
+    "jest": "^27.1.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.0",
+    "ts-jest": "^27.0.5",
+    "ts-node": "3.3.0",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "env-var": "^7.0.1",
+    "fastify": "^3.15.0",
+    "fastify-cors": "^6.0.2",
+    "ramda": "^0.27.1"
+  }
+}
