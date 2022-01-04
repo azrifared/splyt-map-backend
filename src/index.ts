@@ -7,7 +7,7 @@ interface Query {
   latitude: number;
   longitude: number;
   count: number;
-}
+};
 
 function startServer() {
   const app = fastify();
@@ -18,7 +18,6 @@ function startServer() {
 
   app.get<{ Querystring: Query}>('/drivers', async (request, reply) => {
     const { latitude, longitude, count } = request.query;
-    const limit = count ?? 20;
     let error;
 
     if (!longitude) {
@@ -41,12 +40,12 @@ function startServer() {
       const params = new URLSearchParams({
         latitude: String(latitude),
         longitude: String(longitude),
-        count: String(limit)
+        count: String(count ?? 10)
       }).toString();
       const response = await fetch(`https://qa-interview-test.splytech.dev/api/drivers?${params}`);
       const jsonData = await response.json() as DriversRecord;
 
-      if (!jsonData || !jsonData.drivers.length) {
+      if (!jsonData?.drivers?.length) {
         reply.status(404).send({
           status: 404,
           error: 'Drivers not found'
